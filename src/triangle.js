@@ -32,16 +32,12 @@ const generateTriangle = function(isRight,height){
   return triangle;
 }
 
-const isRightAlligned=function(triangleType){
+const createTriangleOfType = function(triangleType,height){
+  let isRight = false;
   if(triangleType=="right"){
-    return true;
+    isRight = true;
   }
-  return false;
+  return (generateTriangle(isRight,height));
 }
-const main = function main(){
-  let triangleType = process.argv[2];
-  let height = +process.argv[3];
-  let isRight = isRightAlligned(triangleType);
-  console.log(generateTriangle(isRight,height));
-}
-main();
+
+exports.createTriangleOfType=createTriangleOfType;

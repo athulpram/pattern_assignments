@@ -82,9 +82,10 @@ const validateHeight=function(height){
   return height;
 } 
 
-const generateDiamond=function(typeOfDiamond,height){
+const generateDiamondOfType=function(typeOfDiamond,height){
   let diamond="";
   let delimiter="";
+  height = validateHeight(height);
   if(typeOfDiamond=="hollow"){
     diamond=generateHollowDiamond(height)
   }
@@ -98,9 +99,4 @@ const generateDiamond=function(typeOfDiamond,height){
   return diamond;
 }
 
-const main = function(){
-  let typeOfDiamond = process.argv[2];
-  let height = validateHeight(+process.argv[3]);
-  console.log(generateDiamond(typeOfDiamond,height));
-}
-main();
+exports.generateDiamondOfType = generateDiamondOfType;

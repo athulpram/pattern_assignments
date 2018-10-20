@@ -42,12 +42,8 @@ const generateAlternatingRectangle = function(height,width){
 }
 
 
-const main = function(){
-  let typeOfRect=process.argv[2];
-  let width = +process.argv[3];
-  let height = +process.argv[4];
-  let rectangle ="";
-
+const createRectangleOfType = function(typeOfRect,width,height){
+  let rectangle = "";
   if(typeOfRect=="filled"){
     rectangle=generateFilledRectangle(height,width);
   }
@@ -59,6 +55,6 @@ const main = function(){
   if(typeOfRect=="alternating"){
     rectangle=generateAlternatingRectangle(height,width);
   }
-  console.log(rectangle);
+  return rectangle;
 }
-main();
+exports.createRectangleOfType=createRectangleOfType;
