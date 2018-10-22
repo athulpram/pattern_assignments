@@ -1,4 +1,4 @@
-const {createTriangleOfType} = require("./src/triangle.js");
+const {createTriangleOfType} = require("./src/patternsLibrary.js");
 const main = function(){
   let triangleType = process.argv[2];
   let height = +process.argv[3];

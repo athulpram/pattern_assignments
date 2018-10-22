@@ -1,4 +1,4 @@
-const {createRectangleOfType} = require("./src/rectangle.js");
+const {createRectangleOfType} = require("./src/patternsLibrary.js");
 const main = function(){
   let typeOfRect=process.argv[2];
   let width = +process.argv[3];
