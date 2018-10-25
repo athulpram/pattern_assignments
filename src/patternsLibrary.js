@@ -63,13 +63,28 @@ const generateTriangle = function(isRight,height){
   return triangle;
 }
 
+const generateRightTriangle = function(height){
+  return generateTriangle(true,height);
+}
+
+const generateLeftTriangle = function(height){
+  return generateTriangle(false,height);
+}
+
 
 const createTriangleOfType = function(triangleType,height){
+  triangleMapping = {
+    "right" : generateRightTriangle,
+    "left" : generateLeftTriangle
+  };
+  
+  return triangleMapping[triangleType](height);
+  /*
   let isRight = false;
   if(triangleType=="right"){
     isRight = true;
   }
-  return (generateTriangle(isRight,height));
+  return (generateTriangle(isRight,height));*/
 }
 
 
