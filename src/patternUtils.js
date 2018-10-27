@@ -1,33 +1,39 @@
+const categorizeRectArgs = function(arguments,index){
+  let object= {
+    type : arguments[index++],
+    width : arguments[index++],
+    height : arguments[index++]
+  };
+  return object;
+}
+
+const categorizeTriArgs =  function(arguments,index){
+  let object= {
+    type : arguments[index++],
+    height : arguments[index++]
+  };
+  return object;
+}
+
+const categorizeDiaArgs = function(arguments,index){
+  let object= {
+    type : arguments[index++],
+    height : arguments[index++]
+  };
+  return object;
+}
+
+
 const categorizeArguments = function(arguments){
   let index=0;
   let returnObject = {};
   argumentTypes = {
-    "rectangle" : function(arguments){
-      let object= {
-        type : arguments[index++],
-        width : arguments[index++],
-        height : arguments[index++]
-      };
-      return object;
-    },
-    "triangle" : function(arguments){
-      let object= {
-        type : arguments[index++],
-        width : arguments[index++],
-        height : arguments[index++]
-      };
-      return object;
-    },
-    "diamond" : function(arguments){
-      let object= {
-        type : arguments[index++],
-        width : arguments[index++],
-        height : arguments[index++]
-      };
-      return object;
-    }
+    "rectangle" : categorizeRectArgs,
+    "triangle" : categorizeTriArgs,
+    "diamond" : categorizeDiaArgs  
   };
-  returnObject = argumentTypes[arguments[index++]](arguments);
+
+  returnObject = argumentTypes[arguments[index++]](arguments,index);
   return returnObject;
 };
 

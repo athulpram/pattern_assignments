@@ -1,7 +1,9 @@
+const {categorizeArguments} = require("./src/patternUtils.js");
 const {createTriangleOfType} = require("./src/patternsLibrary.js");
 const main = function(){
-  let triangleType = process.argv[2];
-  let height = +process.argv[3];
-  console.log(createTriangleOfType(triangleType,height));
+  arguments = process.argv.slice(2);
+  arguments.unshift("triangle");
+  let {type,height} = categorizeArguments(arguments);
+  console.log(createTriangleOfType(type,height));
 }
 main();
