@@ -1,7 +1,9 @@
 const {repeatCharacter,
   generateLine,
   addSpaces,
-  validateHeight}=require("../src/patternUtils.js");
+  validateHeight,
+  categorizeArguments
+}=require("../src/patternUtils.js");
 
 const {deepEqual} = require('assert');
 //Test for repeat character function
@@ -20,6 +22,14 @@ deepEqual(repeatCharacter("*",4),"****");
 
 //Test for repeat character using character *  and width 5
 deepEqual(repeatCharacter("*",5),"*****");
+
+deepEqual(categorizeArguments(["rectangle","filled",20,7]),{type : "filled",width : 20,height : 7});
+
+deepEqual(categorizeArguments(["triangle","left",7]),{type : "left",height : 7});
+
+deepEqual(categorizeArguments(["diamond","filled",7]),{type : "filled",height : 7});
+
+deepEqual(categorizeArguments(["rectangle","Hollow",2,7]),{type : "Hollow",width : 2,height : 7});
 
 //Test generateLine function using inputs width 1 linenum 1 and left aligned 
 deepEqual(generateLine(1,1,false),"*");
