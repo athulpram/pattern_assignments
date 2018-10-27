@@ -1,3 +1,4 @@
+set -e
 for TESTFILE in test/*Test.js
 do
   echo $TESTFILE
