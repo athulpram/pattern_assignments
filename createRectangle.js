@@ -5,6 +5,6 @@ const main = function(){
   arguments.unshift("rectangle");
   let {type,width,height} = categorizeArguments(arguments);
   let rectangle=createRectangleOfType(type,width,height);
-  console.log(rectangle);
+  console.log(rectangle.join("\n"));
 }
 main();

@@ -6,35 +6,30 @@ const {
 } = require("./patternUtils.js");
 
 const generateFilledRectangle = function(height,width){
-  let rectangle = "";
-  let delimiter ="";
+  let rectangle = [];
   for(let line=0;line<height;line++){
-    rectangle+=delimiter+repeatCharacter("*",width);
-    delimiter="\n";
+    rectangle.push(repeatCharacter("*",width));
   }
   return rectangle;
 }
 
 const generateEmptyRectangle=function(height,width){
-  let rectangle = repeatCharacter("*",width);
-  let delimiter = "\n";
+  let rectangle = [repeatCharacter("*",width)];
   for(let line=0;line<height-2;line++){
-    rectangle+=delimiter+"*"+repeatCharacter(" ",width-2)+"*";
+    rectangle.push("*"+repeatCharacter(" ",width-2)+"*");
   }
-  rectangle +=delimiter+repeatCharacter("*",width);
+  rectangle.push(repeatCharacter("*",width));
   return rectangle;
 }
 
 const generateAlternatingRectangle = function(height,width){
 
-  let rectangle = "";
-  let delimiter = "";
+  let rectangle = [];
   for(let line=0;line<height;line++){
-    rectangle+=delimiter+repeatCharacter("*",width);
+    rectangle.push(repeatCharacter("*",width));
     line++;
-    delimiter="\n";
     if(line<height){
-      rectangle+=delimiter+repeatCharacter("-",width);
+      rectangle.push(repeatCharacter("-",width));
     }
   }
   return rectangle;
@@ -54,11 +49,9 @@ const createRectangleOfType = function(typeOfRect,width,height){
 }
 
 const generateTriangle = function(isRight,height){
-  delimiter="";
-  triangle="";
+  triangle=[];
   for(lineNumber=1;lineNumber<=height;lineNumber++){
-    triangle+=delimiter+generateLine(height,lineNumber,isRight);
-    delimiter="\n";
+    triangle.push(generateLine(height,lineNumber,isRight));
   }
   return triangle;
 }
@@ -77,14 +70,7 @@ const createTriangleOfType = function(triangleType,height){
     "right" : generateRightTriangle,
     "left" : generateLeftTriangle
   };
-  
   return triangleMapping[triangleType](height);
-  /*
-  let isRight = false;
-  if(triangleType=="right"){
-    isRight = true;
-  }
-  return (generateTriangle(isRight,height));*/
 }
 
 
@@ -108,40 +94,36 @@ const generateAngledDiamond=function (height){
   for(let characterIndex=1;characterIndex<(height/2);characterIndex++){
     spaces+=" ";
   }
-  diamond=spaces+"*"+spaces+"\n";
+  diamond=[spaces+"*"+spaces];
   for(let lineNumber=2;lineNumber<height/2;lineNumber++){
-    diamond+=generateDiamond("/","\\"," ",lineNumber,height)+"\n";
+    diamond.push(generateDiamond("/","\\"," ",lineNumber,height));
   }
-  diamond+=generateDiamond("*","*"," ",Math.floor(height/2+1),height);
+  diamond.push(generateDiamond("*","*"," ",Math.floor(height/2+1),height));
   for(let lineNumber=Math.floor(height/2);lineNumber>1;lineNumber--){
-    diamond+="\n"+generateDiamond("\\","/"," ",lineNumber,height);
+    diamond.push(generateDiamond("\\","/"," ",lineNumber,height));
   }
-  diamond+="\n"+spaces+"*"+spaces;
+  diamond.push(spaces+"*"+spaces);
   return diamond;
 }
 
 const generateHollowDiamond = function(height){
-  let diamond="";
-  let delimiter="";
+  let diamond=[];
   for(let lineNumber=1;lineNumber<=Math.ceil(height/2);lineNumber++){
-    diamond+=delimiter+generateDiamond("*","*"," ",lineNumber,height);
-    delimiter = "\n";
+    diamond.push(generateDiamond("*","*"," ",lineNumber,height));
   }
   for(let lineNumber=Math.ceil(height/2-1);lineNumber>0;lineNumber--){
-    diamond+=delimiter+generateDiamond("*","*"," ",lineNumber,height);
+    diamond.push(generateDiamond("*","*"," ",lineNumber,height));
   }
   return diamond;
 } 
 
 const generateFilledDiamond = function(height){
-  let diamond="";
-  let delimiter="";
+  let diamond=[];
   for(let lineNumber=1;lineNumber<=Math.ceil(height/2);lineNumber++){
-    diamond+=delimiter+generateDiamond("*","*","*",lineNumber,height);
-    delimiter = "\n";
+    diamond.push(generateDiamond("*","*","*",lineNumber,height));
   }
   for(let lineNumber=Math.ceil(height/2-1);lineNumber>0;lineNumber--){
-    diamond+=delimiter+generateDiamond("*","*","*",lineNumber,height);
+    diamond.push(generateDiamond("*","*","*",lineNumber,height));
   }
   return diamond;
 

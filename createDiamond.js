@@ -5,6 +5,6 @@ const main = function(){
   arguments.unshift("diamond");
   let {type,height} = categorizeArguments(arguments);
  
-  console.log(generateDiamondOfType(type,height));
+  console.log(generateDiamondOfType(type,height).join("\n"));
 }
 main();
