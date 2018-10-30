@@ -46,10 +46,9 @@ const categorizeArguments = function(arguments){
     "diamond" : categorizeDiaArgs
   }
   while(arguments[index]){
-    let polygon = seperateFrom(arguments[index],"_");
+  let polygon = seperateFrom(arguments[index],"_");
     arguments[index] = polygon.type;
-    arguments.unshift(polygon.pattern);
-    returnObjects.push(argumentTypes[polygon.pattern](arguments,index+1));
+    returnObjects.push(argumentTypes[polygon.pattern](arguments,index));
     index = returnObjects[returnObjects.length-1].index;
   }
   return returnObjects;
