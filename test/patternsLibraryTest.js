@@ -1,29 +1,32 @@
-const {createRectangleOfType,createTriangleOfType,generateDiamondOfType}=require('../src/patternsLibrary.js');
+const {createPatternOfType,createRectangleOfType,createTriangleOfType,generateDiamondOfType}=require('../src/patternsLibrary.js');
 const {deepEqual} = require('assert');
 
 line="********************";
 pattern=[line,line,line,line,line,line,line];
 
 //Test cases for rectangle patterns
-
 //Rectangle pattern test with the given input -> filled , wdth - 20 and height - 7
-deepEqual(createRectangleOfType("filled",20,7),pattern);
+deepEqual(createRectangleOfType("filled",7,20),pattern);
 
 //Rectangle pattern test with the inputs "filled" , width - 1 and height - 2
-deepEqual(createRectangleOfType("filled",1,2),["*","*"]);
+deepEqual(createRectangleOfType("filled",2,1),["*","*"]);
 
 //rectangle pattern test with the inputs "filled" , width - 2 and height - 2
 deepEqual(createRectangleOfType("filled",2,2),["**","**"]);
 
 //rectangle pattern test with the inputs "filed" , width -1 and height -3
-deepEqual(createRectangleOfType("filled",1,3),["*","*","*"]);
+deepEqual(createRectangleOfType("filled",3,1),["*","*","*"]);
 
 //rectangle pattern test with the inputs "filled" , width - 3 and height  -3
 deepEqual(createRectangleOfType("filled",3,3),["***","***","***"]);
 
 //rectangle pattern test with the inputs "filled", width - 4 and height -2
-deepEqual(createRectangleOfType("filled",4,2),["****","****"]);
 
+deepEqual(createRectangleOfType("filled",2,4),["****","****"]);
+deepEqual(createPatternOfType([{pattern : "rectangle",type:"filled",width:4,height:2}]),["****","****"]);
+deepEqual(createPatternOfType([{pattern : "rectangle",type:"filled",width:3,height:2}]),["***","***"]);
+deepEqual(createPatternOfType([{pattern : "triangle",type:"left",height:3}]),["*","**","***"]);
+deepEqual(createPatternOfType([{pattern : "diamond",type:"filled",height:5}]),["  *  "," *** ","*****"," *** ","  *  "]);
 line="********************";
 hline="*                  *";
 pattern = [line,hline,hline,hline,hline,hline,line];
@@ -31,32 +34,32 @@ pattern = [line,hline,hline,hline,hline,hline,line];
 deepEqual(createRectangleOfType("empty",2,2),["**","**"]);
 
 //rectangle pattern test with the inputs "empty" width as 3 and height as 2
-deepEqual(createRectangleOfType("empty",3,2),["***","***"]);
+deepEqual(createRectangleOfType("empty",2,3),["***","***"]);
 
 //rectangle pattern test with the inputs "empty"width as 3 and height as 3
 deepEqual(createRectangleOfType("empty",3,3),["***","* *","***"]);
 
 //rectangle pattern test with the inputs "empty" width as 20 and height as 7
-deepEqual(createRectangleOfType("empty",20,7),pattern);
+deepEqual(createRectangleOfType("empty",7,20),pattern);
 
 line="******************************";
 hline="*                            *";
 pattern = [line,hline,hline,hline,hline,hline,hline,line];
-deepEqual(createRectangleOfType("empty",30,8),pattern);
+deepEqual(createRectangleOfType("empty",8,30),pattern);
 
 //
 
 
 deepEqual(createRectangleOfType("alternating",2,2),["**","--"]);
-deepEqual(createRectangleOfType("alternating",3,2),["***","---"]);
+deepEqual(createRectangleOfType("alternating",2,3),["***","---"]);
 deepEqual(createRectangleOfType("alternating",3,3),["***","---","***"]);
-deepEqual(createRectangleOfType("alternating",1,2),["*","-"]);
+deepEqual(createRectangleOfType("alternating",2,1),["*","-"]);
 
 
 line="********************";
 hline="--------------------";
 pattern = [line,hline,line,hline,line,hline,line];
-deepEqual(createRectangleOfType("alternating",20,7),pattern);
+deepEqual(createRectangleOfType("alternating",7,20),pattern);
 
 //-----------------------TRIANGLE-----------------------------
 

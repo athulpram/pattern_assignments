@@ -37,7 +37,7 @@ const generateAlternatingRectangle = function(height,width){
 
 
 
-const createRectangleOfType = function(typeOfRect,width,height){
+const createRectangleOfType = function(typeOfRect,height,width){
   rectangleMapping = {
     "filled" : generateFilledRectangle,
     "empty" : generateEmptyRectangle,
@@ -47,6 +47,8 @@ const createRectangleOfType = function(typeOfRect,width,height){
   let rectangle = rectangleMapping[typeOfRect](height,width);
   return rectangle;
 }
+
+
 
 const generateTriangle = function(isRight,height){
   triangle=[];
@@ -129,6 +131,17 @@ const generateFilledDiamond = function(height){
 
 }
 
+const createPatternOfType = function(patterns){
+  let index = 0;
+  patternMap = {
+    "rectangle" : createRectangleOfType,
+    "triangle" : createTriangleOfType,
+    "diamond" : generateDiamondOfType
+  }
+  while(index<patterns.length){
+    return patternMap[patterns[index].pattern](patterns[index].type,patterns[index].height,patterns[index].width);
+  }
+}
 
 const generateDiamondOfType=function(typeOfDiamond,height){
   height = validateHeight(height);
@@ -144,3 +157,4 @@ const generateDiamondOfType=function(typeOfDiamond,height){
 exports.generateDiamondOfType = generateDiamondOfType;
 exports.createTriangleOfType=createTriangleOfType;
 exports.createRectangleOfType=createRectangleOfType;
+exports.createPatternOfType = createPatternOfType;
