@@ -23,14 +23,13 @@ deepEqual(repeatCharacter("*",4),"****");
 //Test for repeat character using character *  and width 5
 deepEqual(repeatCharacter("*",5),"*****");
 
-deepEqual(categorizeArguments(["rectangle","filled",20,7]),{type : "filled",width : 20,height : 7});
+deepEqual(categorizeArguments(["filled_rectangle",20,7]),[{pattern : "rectangle" ,type : "filled", width : 20, height : 7, index : 4}]);
 
-deepEqual(categorizeArguments(["triangle","left",7]),{type : "left",height : 7});
+deepEqual(categorizeArguments(["filled_diamond",7]),[{pattern : "diamond" ,type : "filled",height : 7,index : 3}]);
 
-deepEqual(categorizeArguments(["diamond","filled",7]),{type : "filled",height : 7});
+deepEqual(categorizeArguments(["left_triangle",7]),[{pattern : "triangle" ,type : "left", height : 7, index : 3}]);
 
-deepEqual(categorizeArguments(["rectangle","Hollow",2,7]),{type : "Hollow",width : 2,height : 7});
-
+deepEqual(categorizeArguments(["filled_rectangle",2,7,"left_triangle",7]),[{pattern : 'rectangle' ,type : "filled", width : 2, height : 7, index : 4},{pattern : "triangle" ,type : "left", height : 7, index : 7}]);
 //Test generateLine function using inputs width 1 linenum 1 and left aligned 
 deepEqual(generateLine(1,1,false),"*");
 
