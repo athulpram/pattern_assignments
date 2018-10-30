@@ -2,6 +2,7 @@ const {
   repeatCharacter,
   generateLine,
   addSpaces,
+  zip,
   validateHeight
 } = require("./patternUtils.js");
 
@@ -133,14 +134,22 @@ const generateFilledDiamond = function(height){
 
 const createPatternOfType = function(patterns){
   let index = 0;
+  patternsArray = [];
   patternMap = {
     "rectangle" : createRectangleOfType,
     "triangle" : createTriangleOfType,
     "diamond" : generateDiamondOfType
   }
   while(index<patterns.length){
-    return patternMap[patterns[index].pattern](patterns[index].type,patterns[index].height,patterns[index].width);
+    patternsArray.push(patternMap[patterns[index].pattern](patterns[index].type,patterns[index].height,patterns[index].width));
+    index++;
   }
+  index=1;
+  while(patternsArray[index]){
+    patternsArray[0]= zip(patternsArray[0],patternsArray[index]);
+    index++;
+  }
+  return patternsArray[0];
 }
 
 const generateDiamondOfType=function(typeOfDiamond,height){
@@ -150,7 +159,7 @@ const generateDiamondOfType=function(typeOfDiamond,height){
     "angled" : generateAngledDiamond,
     "filled" : generateFilledDiamond
   }
-  let diamond=diamondMaps[typeOfDiamond](height)
+  let diamond=diamondMaps[typeOfDiamond](height);
   return diamond;
 }
 

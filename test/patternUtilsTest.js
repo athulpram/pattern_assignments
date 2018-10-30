@@ -2,7 +2,8 @@ const {repeatCharacter,
   generateLine,
   addSpaces,
   validateHeight,
-  categorizeArguments
+  categorizeArguments,
+  zip
 }=require("../src/patternUtils.js");
 
 const {deepEqual} = require('assert');
@@ -68,5 +69,16 @@ deepEqual(validateHeight(4),3);
 deepEqual(validateHeight(5),5);
 //Test validateHeight Function with input 6
 deepEqual(validateHeight(6),5);
+
+//using empty array
+deepEqual(zip([],[]),[]);
+
+//using single values
+deepEqual(zip(["*"],["*"]),[["**"]]);
+
+//using multiple values
+deepEqual(zip(["*","*"],["*","*"]),[["**"],["**"]]);
+
+deepEqual(zip(["**","*","***"],["*","**","**"]),[["***"],["***"],["*****"]]);
 
 console.log("all Util function tests passed");

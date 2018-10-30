@@ -1,3 +1,11 @@
+const zip = function(firstSet,secondSet){
+  let zippedArray = [];
+  for(index=0;index<firstSet.length;index++){
+    zippedArray[index] = [firstSet[index]+secondSet[index]];
+  }
+  return zippedArray;
+}
+
 const categorizeRectArgs = function(arguments,index){
   let object= {
     pattern : "rectangle",
@@ -88,4 +96,5 @@ exports.repeatCharacter = repeatCharacter;
 exports.generateLine = generateLine;
 exports.addSpaces = addSpaces;
 exports.validateHeight = validateHeight;
+exports.zip = zip;
 exports.categorizeArguments = categorizeArguments;
