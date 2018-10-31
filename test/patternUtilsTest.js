@@ -32,19 +32,19 @@ deepEqual(categorizeArguments(["left_triangle",7]),[{pattern : "triangle" ,type 
 
 deepEqual(categorizeArguments(["filled_rectangle",2,7,"left_triangle",7]),[{pattern : 'rectangle' ,type : "filled", width : 2, height : 7, index : 3},{pattern : "triangle" ,type : "left", height : 7, index : 5}]);
 //Test generateLine function using inputs width 1 linenum 1 and left aligned 
-deepEqual(generateLine(1,1,false),"*");
+deepEqual(generateLine(1,1),"*");
 
 //Test generateLine function using inputs width 2 line 2 and left aligned
-deepEqual(generateLine(2,2,false),"**");
+deepEqual(generateLine(2,2),"**");
 
 //Test generateLine function using inputs width 4 line 2 and left aligned
-deepEqual(generateLine(4,2,false),"**");
+deepEqual(generateLine(4,2),"  **");
 
 //Test generateLine funtion using inputs width 1 and line 1 and right aliged
-deepEqual(generateLine(1,1,true),"*");
+deepEqual(generateLine(1,1),"*");
 
 //Test generateLine function using inputs width 4 and line 2 and right aligned
-deepEqual(generateLine(4,2,true),"  **");
+deepEqual(generateLine(4,2),"  **");
 
 //Test addSpaces function using input Character * and width 1
 deepEqual(addSpaces("*",1),"*");
@@ -74,11 +74,11 @@ deepEqual(validateHeight(6),5);
 deepEqual(zip([],[]),[]);
 
 //using single values
-deepEqual(zip(["*"],["*"]),[["**"]]);
+deepEqual(zip(["*"],["*"]),[["* *"]]);
 
 //using multiple values
-deepEqual(zip(["*","*"],["*","*"]),[["**"],["**"]]);
+deepEqual(zip(["*","*"],["*","*"]),[["* *"],["* *"]]);
 
-deepEqual(zip(["**","*","***"],["*","**","**"]),[["***"],["***"],["*****"]]);
+deepEqual(zip(["**","*","***"],["*","**","**"]),[["** *"],["* **"],["*** **"]]);
 
 console.log("all Util function tests passed");

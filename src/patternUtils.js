@@ -1,7 +1,7 @@
 const zip = function(firstSet,secondSet){
   let zippedArray = [];
   for(index=0;index<firstSet.length;index++){
-    zippedArray[index] = [firstSet[index]+secondSet[index]];
+    zippedArray[index] = [firstSet[index]+" "+secondSet[index]];
   }
   return zippedArray;
 }
@@ -69,12 +69,10 @@ const repeatCharacter = function(character,width){
   return line;
 }
 
-const generateLine = function (width,lineNumber,isRight){
+const generateLine = function (width,lineNumber){
   let line= "";
-  line=repeatCharacter("*",lineNumber);
-  if(isRight){
-    line=addSpaces(line,width);
-  }
+  line = repeatCharacter("*",lineNumber);
+  line = addSpaces(line,width);
   return line;
 }
 

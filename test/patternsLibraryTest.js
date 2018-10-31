@@ -31,11 +31,11 @@ deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:4,hei
 deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:3,height:2}]),["***","***"].join("\n"));
 
 //create pattern of type function test for triangle set of arguments
-deepEqual(createPatternsOfType([{pattern : "triangle",type:"left",height:3}]),["*","**","***"].join("\n"));
+deepEqual(createPatternsOfType([{pattern : "triangle",type:"left",height:3}]),["*  ","** ","***"].join("\n"));
 
-deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:4,height:2},{pattern : "triangle",type:"left",height:2}]),[["*****"],["******"]].join("\n"));
+deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:4,height:2},{pattern : "triangle",type:"left",height:2}]),[["**** * "],["**** **"]].join("\n"));
 console.log("pattern type half passed");
-deepEqual(createPatternsOfType([{pattern : "triangle",type:"left",height:3},{pattern : "triangle",type:"left",height:3}]),[["**"],["****"],["******"]].join("\n"));
+deepEqual(createPatternsOfType([{pattern : "triangle",type:"left",height:3},{pattern : "triangle",type:"left",height:3}]),[["*   *  "],["**  ** "],["*** ***"]].join("\n"));
 
 //create pattern of type function test for diamond set of arguments
 deepEqual(createPatternsOfType([{pattern : "diamond",type:"filled",height:5}]),["  *  "," *** ","*****"," *** ","  *  "].join("\n"));
@@ -76,19 +76,19 @@ deepEqual(createRectangleOfType("alternating",7,20),pattern);
 //-----------------------TRIANGLE-----------------------------
 
 //Triangle pattern of left aligned with height 2
-deepEqual(createTriangleOfType("left",2),["*","**"]);
+deepEqual(createTriangleOfType("left",2),["* ","**"]);
 
 //Triangle pattern of left aligned with height 3
-deepEqual(createTriangleOfType("left",3),["*","**","***"]);
+deepEqual(createTriangleOfType("left",3),["*  ","** ","***"]);
 
 //Triangle pattern of left aligned with height 4
-deepEqual(createTriangleOfType("left",4),["*","**","***","****"]);
+deepEqual(createTriangleOfType("left",4),["*   ","**  ","*** ","****"]);
 
 //Triangle pattern of left aligned with height 5
-deepEqual(createTriangleOfType("left",5),["*","**","***","****","*****"]);
+deepEqual(createTriangleOfType("left",5),["*    ","**   ","***  ","**** ","*****"]);
 
 //Triangle pattern of left aligned with height 6
-deepEqual(createTriangleOfType("left",6),["*","**","***","****","*****","******"]);
+deepEqual(createTriangleOfType("left",6),["*     ","**    ","***   ","****  ","***** ","******"]);
 
   //Triangle pattern of right aligned with height 2
 deepEqual(createTriangleOfType("right",2),[" *","**"]);

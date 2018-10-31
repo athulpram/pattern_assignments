@@ -51,20 +51,25 @@ const createRectangleOfType = function(typeOfRect,height,width){
 
 
 
-const generateTriangle = function(isRight,height){
+const generateTriangle = function(height){
   triangle=[];
   for(lineNumber=1;lineNumber<=height;lineNumber++){
-    triangle.push(generateLine(height,lineNumber,isRight));
+    triangle.push(generateLine(height,lineNumber));
   }
   return triangle;
 }
 
 const generateRightTriangle = function(height){
-  return generateTriangle(true,height);
+  return generateTriangle(height);
+}
+
+const revLine = function(line){
+  return line.split("").reverse().join("");
 }
 
 const generateLeftTriangle = function(height){
-  return generateTriangle(false,height);
+  let triangle=generateTriangle(height);
+  return triangle.map(revLine);
 }
 
 
