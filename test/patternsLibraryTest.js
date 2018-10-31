@@ -1,4 +1,4 @@
-const {createPatternOfType,createRectangleOfType,createTriangleOfType,generateDiamondOfType}=require('../src/patternsLibrary.js');
+const {createPatternsOfType,createRectangleOfType,createTriangleOfType,generateDiamondOfType}=require('../src/patternsLibrary.js');
 const {deepEqual} = require('assert');
 
 line="********************";
@@ -25,20 +25,20 @@ deepEqual(createRectangleOfType("filled",3,3),["***","***","***"]);
 deepEqual(createRectangleOfType("filled",2,4),["****","****"]);
 
 //create Pattern of type fucntion test for rectangle arguments 
-deepEqual(createPatternOfType([{pattern : "rectangle",type:"filled",width:4,height:2}]),["****","****"]);
+deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:4,height:2}]),["****","****"].join("\n"));
 
 //create pattern of type function test for another set of rectangle arguments
-deepEqual(createPatternOfType([{pattern : "rectangle",type:"filled",width:3,height:2}]),["***","***"]);
+deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:3,height:2}]),["***","***"].join("\n"));
 
 //create pattern of type function test for triangle set of arguments
-deepEqual(createPatternOfType([{pattern : "triangle",type:"left",height:3}]),["*","**","***"]);
+deepEqual(createPatternsOfType([{pattern : "triangle",type:"left",height:3}]),["*","**","***"].join("\n"));
 
-deepEqual(createPatternOfType([{pattern : "rectangle",type:"filled",width:4,height:2},{pattern : "triangle",type:"left",height:2}]),[["*****"],["******"]]);
+deepEqual(createPatternsOfType([{pattern : "rectangle",type:"filled",width:4,height:2},{pattern : "triangle",type:"left",height:2}]),[["*****"],["******"]].join("\n"));
 console.log("pattern type half passed");
-deepEqual(createPatternOfType([{pattern : "triangle",type:"left",height:3},{pattern : "triangle",type:"left",height:3}]),[["**"],["****"],["******"]]);
+deepEqual(createPatternsOfType([{pattern : "triangle",type:"left",height:3},{pattern : "triangle",type:"left",height:3}]),[["**"],["****"],["******"]].join("\n"));
 
 //create pattern of type function test for diamond set of arguments
-deepEqual(createPatternOfType([{pattern : "diamond",type:"filled",height:5}]),["  *  "," *** ","*****"," *** ","  *  "]);
+deepEqual(createPatternsOfType([{pattern : "diamond",type:"filled",height:5}]),["  *  "," *** ","*****"," *** ","  *  "].join("\n"));
 line="********************";
 hline="*                  *";
 pattern = [line,hline,hline,hline,hline,hline,line];

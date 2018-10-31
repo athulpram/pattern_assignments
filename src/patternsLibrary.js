@@ -132,7 +132,7 @@ const generateFilledDiamond = function(height){
 
 }
 
-const createPatternOfType = function(patterns){
+const createPatternsOfType = function(patterns){
   let index = 0;
   patternsArray = [];
   patternMap = {
@@ -149,7 +149,7 @@ const createPatternOfType = function(patterns){
     patternsArray[0]= zip(patternsArray[0],patternsArray[index]);
     index++;
   }
-  return patternsArray[0];
+  return patternsArray[0].join("\n");
 }
 
 const generateDiamondOfType=function(typeOfDiamond,height){
@@ -166,4 +166,4 @@ const generateDiamondOfType=function(typeOfDiamond,height){
 exports.generateDiamondOfType = generateDiamondOfType;
 exports.createTriangleOfType=createTriangleOfType;
 exports.createRectangleOfType=createRectangleOfType;
-exports.createPatternOfType = createPatternOfType;
+exports.createPatternsOfType = createPatternsOfType;
