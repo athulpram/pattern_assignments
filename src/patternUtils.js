@@ -6,7 +6,7 @@ const zip = function(firstSet,secondSet){
   return zippedArray;
 }
 
-const categorizeRectArgs = function(arguments,index){
+const categorizeRectArgs = function(arguments,index=0){
   let object= {
     pattern : "rectangle",
     type : arguments[index++],
@@ -17,7 +17,7 @@ const categorizeRectArgs = function(arguments,index){
   return object;
 }
 
-const categorizeTriArgs =  function(arguments,index){
+const categorizeTriArgs =  function(arguments,index=0){
   let object= {
     pattern : "triangle",
     type : arguments[index++],
@@ -27,7 +27,7 @@ const categorizeTriArgs =  function(arguments,index){
   return object;
 }
 
-const categorizeDiaArgs = function(arguments,index){
+const categorizeDiaArgs = function(arguments,index=0){
   let object= {
     pattern : "diamond",
     type : arguments[index++],
@@ -98,3 +98,6 @@ exports.addSpaces = addSpaces;
 exports.validateHeight = validateHeight;
 exports.zip = zip;
 exports.categorizeArguments = categorizeArguments;
+exports.categorizeRectArgs = categorizeRectArgs;
+exports.categorizeTriArgs = categorizeTriArgs;
+exports.categorizeDiaArgs = categorizeDiaArgs;
